@@ -9,12 +9,12 @@ class ProdutoEnum(str, Enum):
     produto2 = "ZapFlow com ChatGPT"
     produto3 = "ZapFlow com LIama3.0"
 
-class Vendas(BaseModel):
-    email: EmailStr
-    data: datetime
-    valor: PositiveFloat
-    quantidade: PositiveInt
-    produto: ProdutoEnum
+# class Vendas(BaseModel):
+#     email: EmailStr
+#     data: datetime
+#     valor: PositiveFloat
+#     quantidade: PositiveInt
+#     produto: ProdutoEnum
 
 
     @validate_call("produto")
