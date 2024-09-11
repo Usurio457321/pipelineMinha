@@ -1,6 +1,7 @@
 import streamlit as st
-import contrato
+from contrato import Vendas
 from datetime import datetime,time
+from pydantic import ValidationError
 
 #st.write("esse é meu dashboard")
 
@@ -15,6 +16,13 @@ def main():
 
     if st.button("Salvar"):
 
+        venda = Vendas(
+            email = email,
+            data = data_hora,
+            valor = valor,
+            quantidade = quantidade,
+            produto = produto
+        )
         data_hora = datetime.combine(data,hora)
         st.write("**Dados da Venda:**")
         st.write(f"Email do vendedor: {email}")
