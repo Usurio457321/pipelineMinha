@@ -1,9 +1,11 @@
+# database.py
 import psycopg2
 from psycopg2 import sql
 from contrato import Vendas
 import streamlit as st
 from dotenv import load_dotenv
 import os
+import traceback  # Adicionando o módulo traceback
 
 # Carregar variáveis do arquivo .env
 load_dotenv()
@@ -44,4 +46,4 @@ def salvar_no_postgres(dados: Vendas):
         conn.close()
         st.success("Dados salvos com sucesso no banco de dados!")
     except Exception as e:
-        st.error(f"Erro ao salvar no banco de dados: {e}")
+        st.error(f"Erro ao salvar no banco de dados: {e}\n{traceback.format_exc()}")  # Exibindo o traceback completo
